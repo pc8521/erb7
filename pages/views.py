@@ -9,8 +9,8 @@ from django.http import HttpResponse
 def index(request):
     return render(request, 'pages/index.html')
 
-def products(request):
-    return render(request, 'pages/products.html')
+def test(request):
+    return render(request, 'pages/test.html')
 
 def about(request):
     return render(request, 'pages/about.html')
