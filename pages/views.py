@@ -9,8 +9,13 @@ from django.http import HttpResponse
 def index(request):
     return render(request, 'pages/index.html')
 
+def about(request):
+    return render(request, 'pages/about.html')
+
 def test(request):
+    # print(request.path)
+    # print(request)
     return render(request, 'pages/test.html')
 
-def about(request):
+def aboutt(request):
     return render(request, 'pages/about.html')
