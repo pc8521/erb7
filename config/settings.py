@@ -44,13 +44,13 @@ DJANGO_APPS = [
     "debug_toolbar",
 ]
 
-APPCATION_APPS = [
+APPLICATION_APPS = [
     'pages.apps.PagesConfig',
     'listings.apps.ListingsConfig',
     'doctors.apps.DoctorsConfig',
 ]
 
-INSTALLED_APPS = DJANGO_APPS + APPCATION_APPS
+INSTALLED_APPS = DJANGO_APPS + APPLICATION_APPS
 
 # INSTALLED_APPS = [
 #    'django.contrib.admin',
@@ -158,3 +158,6 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 INTERNAL_IPS = [ "127.0.0.1", ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
