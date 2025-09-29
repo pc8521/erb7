@@ -24,3 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ] + debug_toolbar_urls()
 
+admin.site.site_header = "ERB7 Medical Center Admin Portal"
+admin.site.site_title = "ERB7 Medical Center Admin Portal"
+admin.site.index_title = "Welcome to ERB7 Medical Center Admin Portal"
