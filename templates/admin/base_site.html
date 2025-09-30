@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+{% block branding %}
+{% load static %}
+<h1 class="head">
+    <img 
+    src="{% static 'img/logo.png' %}"
+    alt="medical logo"
+    class="brand_img"
+    height="30"
+    width="30"
+    />
+    <span class="brands">ERB7 Medical Center Admin Portal</span>
+</h1>
+{% endblock %}
+
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'css/admin.css' %}" />
+{% endblock %}
