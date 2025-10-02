@@ -57,7 +57,7 @@
                         <div class="listing-heading text-center">
                             <h4 class="text-primary">{{listing.title}}</h4>
                             <p>
-                            <i class="fas fa-map-marker text-secondary"></i>{{listing.district | title}}
+                            <i class="fas fa-map-marker text-secondary"></i> {{listing.district | title}}
                             </p>
                         </div>
                         <hr />
@@ -111,12 +111,14 @@
             <li class="page-item active">
             <a class="page-link" href="#">1</a>
             </li>
+            {% comment %}
             <li class="page-item">
             <a class="page-link" href="#">2</a>
             </li>
             <li class="page-item">
             <a class="page-link" href="#">3</a>
             </li>
+            {% endcomment %}
             <li class="page-item">
             <a class="page-link" href="#">&raquo;</a>
             </li>
