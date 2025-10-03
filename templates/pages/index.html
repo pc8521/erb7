@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+<!-- load humanize --> 
+{% load humanize %} 
 {% block content %}
 {% load static %}
 <!-- Showcase -->
@@ -99,7 +101,9 @@
     <div class="container">
     <h3 class="text-center mb-3">Inpatient medical services</h3>
     <div class="row">
+        {% if listings %}
         <!-- Listing 1 -->
+        {% for listing in listings %}
         <div class="col-md-6 col-lg-4 mb-4">
         <div class="card listing-preview">
             {% comment %} fix {% endcomment %}
@@ -151,7 +155,7 @@
             </div>
         </div>
         </div>
-
+        {% endfor %}
         <!-- Listing 2 -->
         <div class="col-md-6 col-lg-4 mb-4">
         <div class="card listing-preview">
@@ -260,6 +264,12 @@
             >
             </div>
         </div>
+        </div>
+        {% else %}
+            <div class="col-md-12">
+                <h1>No Clinic Available</h1>
+            </div>
+        {% endif %}
         </div>
     </div>
     </div>

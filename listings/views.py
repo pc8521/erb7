@@ -10,6 +10,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def listings(request):
     # listings=Listing.objects.all()
+    #QuerySet of published listings
     listings=Listing.objects.order_by('list_date').filter(is_published=True)
     paginator=Paginator(listings, 3) # Show 3 listings per page
     page=request.GET.get('page')
