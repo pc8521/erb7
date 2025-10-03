@@ -28,5 +28,9 @@ class Listing(models.Model):
     is_published = models.BooleanField(default=True)
     list_date = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ('-list_date',) # New line to set default ordering
+        indexes = [models.Index(fields=['list_date'])] # New line to add index on list_date
+
     def __str__(self):
         return self.title
