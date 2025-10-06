@@ -24,9 +24,9 @@
             <a href={% url "pages:index" %}>Home</a>
         </li>
         <li class="breadcrumb-item">
-            <a href=c>Listings</a>
+            <a href={% url "listings:listings" %}>Listings</a>
         </li>
-        <li class="breadcrumb-item active">Lifeline Wellness Center</li>
+        <li class="breadcrumb-item active">{{listing.title}}</li>
         </ol>
     </nav>
     </div>
@@ -39,98 +39,104 @@
     <div class="row">
         <div class="col-md-9">
         <!-- Home Main Image -->
-        {% comment %} fix {% endcomment %}
         <img
-            src={% static "img/clinics/clinic-1.jpg" %}
+            src={{listing.photo_main.url}}
             alt=""
             class="img-main img-fluid mb-3"
         />
         <!-- Thumbnails -->
         <div class="row mb-5 thumbs">
+
+            {% if listing.photo_1 %}
             <div class="col-md-2">
-            {% comment %} fix {% endcomment %}
             <a
-                href={% static "img/clinics/clinic-inside-1.jpg" %}
+                href={{listing.photo_1.url}}
                 data-lightbox="home-images"
             >
-            {% comment %} fix {% endcomment %}
                 <img
-                src={% static "img/clinics/clinic-inside-1.jpg" %}
+                src={{listing.photo_1.url}}
                 alt=""
                 class="img-fluid"
                 />
             </a>
             </div>
+            {% endif %}
+
+            {% if listing.photo_2 %}
             <div class="col-md-2">
-            {% comment %} fix {% endcomment %}
             <a
-                href={% static "img/clinics/clinic-inside-2.jpg" %}
+                href={{listing.photo_2.url}}
                 data-lightbox="home-images"
             >
-            {% comment %} fix {% endcomment %}
                 <img
-                src={% static "img/clinics/clinic-inside-2.jpg" %}
+                src={{listing.photo_2.url}}
                 alt=""
                 class="img-fluid"
                 />
             </a>
             </div>
+            {% endif %}
+
+            {% if listing.photo_3 %}
             <div class="col-md-2">
-            {% comment %} fix {% endcomment %}
             <a
-                href={% static "img/clinics/clinic-inside-3.jpg" %}
+                href={{listing.photo_3.url}}
                 data-lightbox="home-images"
             >
-            {% comment %} fix {% endcomment %}
                 <img
-                src={% static "img/clinics/clinic-inside-3.jpg" %}
+                src={{listing.photo_3.url}}
                 alt=""
                 class="img-fluid"
                 />
             </a>
             </div>
+            {% endif %}
+
+            {% if listing.photo_4 %}
             <div class="col-md-2">
-            {% comment %} fix {% endcomment %}
             <a
-                href={% static "img/clinics/clinic-inside-4.jpg" %}
+                href={{listing.photo_4.url}}
                 data-lightbox="home-images"
             >
-            {% comment %} fix {% endcomment %}
                 <img
-                src={% static "img/clinics/clinic-inside-4.jpg" %}
+                src={{listing.photo_4.url}}
                 alt=""
                 class="img-fluid"
                 />
             </a>
             </div>
+            {% endif %}
+
+            {% if listing.photo_5 %}
             <div class="col-md-2">
-            {% comment %} fix {% endcomment %}
             <a
-                href={% static "img/clinics/clinic-inside-5.jpg" %}
+                href={{listing.photo_5.url}}
                 data-lightbox="home-images"
             >
-            {% comment %} fix {% endcomment %}
                 <img
-                src={% static "img/clinics/clinic-inside-5.jpg" %}
+                src={{listing.photo_5.url}}
                 alt=""
                 class="img-fluid"
                 />
             </a>
             </div>
+            {% endif %}
+
+            {% if listing.photo_6 %}
             <div class="col-md-2">
-            {% comment %} fix {% endcomment %}
             <a
-                href={% static "img/clinics/clinic-inside-6.jpg" %}
+                href={{listing.photo_6.url}}
                 data-lightbox="home-images"
             >
-            {% comment %} fix {% endcomment %}
                 <img
-                src={% static "img/clinics/clinic-inside-6.jpg" %}
+                src={{listing.photo_6.url}}
                 alt=""
                 class="img-fluid"
                 />
             </a>
             </div>
+            {% endif %}
+
         </div>
         <!-- Fields -->
         <div class="row mb-5 fields">
