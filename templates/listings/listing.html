@@ -199,12 +199,12 @@
             {% comment %} fix {% endcomment %}
             <img
             class="card-img-top"
-            src={% static "img/doctors/kyle.jpg" %}
+            src={{doctor.photo.url}}
             alt="Seller of the month"
             />
             <div class="card-body">
             <h5 class="card-title">Medical Practitioner</h5>
-            <h6 class="text-secondary">Kyle Chan</h6>
+            <h6 class="text-secondary">{{doctor.name}}</h6>
             </div>
         </div>
         <button
