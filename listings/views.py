@@ -1,7 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Listing
-from .models import Doctor
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
@@ -21,9 +20,9 @@ def listings(request):
     # return render(request, 'listings/listings.html', {'name': 'Medical Center Listings'})  
 
 def listing(request, listing_id):
-    listing=Listing.objects.get(id=listing_id)
-    doctors = Doctor.objects.all()  # Get all doctors
-    context={'listing': listing, 'doctors': doctors}
+    # listing=Listing.objects.get(id=listing_id)
+    listing=get_object_or_404(Listing, pk=listing_id)
+    context={'listing': listing}
     return render(request, 'listings/listing.html', context)
 
 def search(request):

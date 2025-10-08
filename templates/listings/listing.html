@@ -195,18 +195,19 @@
         </div>
         </div>
         <div class="col-md-3">
-        <div class="card mb-3">
-            {% comment %} fix {% endcomment %}
+        {% if listing.doctor.photo %}
+        <div class="card mb-3">            
             <img
             class="card-img-top"
-            src={{doctor.photo.url}}
+            src={{ listing.doctor.photo.url }}
             alt="Seller of the month"
             />
             <div class="card-body">
             <h5 class="card-title">Medical Practitioner</h5>
-            <h6 class="text-secondary">{{doctor.name}}</h6>
+            <h6 class="text-secondary">{{ listing.doctor.name }}</h6>
             </div>
         </div>
+        {% endif %}
         <button
             class="btn-primary btn-block btn-lg"
             data-toggle="modal"

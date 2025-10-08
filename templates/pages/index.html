@@ -34,9 +34,13 @@
                 <div class="col-md-4 mb-3">
                 <label class="sr-only">District</label>
                 <select name="district" class="form-control">
-                    <option selected="true" disabled="disabled">
+                    <option selected="true" value="">
                     District (All)
                     </option>
+                    {% for key,value in district_choices.items %}
+                    <option value="{{key}}">{{value}}</option>
+                    {% endfor %}
+                    {% comment %}
                     <option value="IL">Islands</option>
                     <option value="KT">Kwai Tsing</option>
                     <option value="NR">North</option>
@@ -55,14 +59,19 @@
                     <option value="ER">Eastern</option>
                     <option value="SR">Southern</option>
                     <option value="WC">Wan Chai</option>
+                    {% endcomment %}
                 </select>
                 </div>
                 <div class="col-md-4 mb-3">
-                <label class="sr-only">Bedrooms</label>
-                <select name="bedrooms" class="form-control">
-                    <option selected="true" disabled="disabled">
+                <label class="sr-only">Nights</label>
+                <select name="nights" class="form-control">
+                    <option selected="true" value="">
                     Night (All)
                     </option>
+                    {% for key,value in night_choices.items %}
+                    <option value="{{key}}">{{value}}</option>
+                    {% endfor %}
+                    {% comment %}
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -73,16 +82,22 @@
                     <option value="8">8</option>
                     <option value="9">9</option>
                     <option value="10">10</option>
+                    {% endcomment %}
                 </select>
                 </div>
                 <div class="col-md-4 mb-3">
-                <select name="price" class="form-control" id="type">
-                    <option selected="true" disabled="disabled">
-                    Bedrooms (All)
+                <select name="room_type" class="form-control" id="type">
+                    <option selected="true" value="">
+                    Room Types (All)
                     </option>
+                    {% for key,value in rooms_choices.items %}
+                    <option value="{{key}}">{{value}}</option>
+                    {% endfor %}
+                    {% comment %}
                     <option value="1">Private Rooms</option>
                     <option value="2">Semi-Private Rooms</option>
                     <option value="3">Standard (Multi-bed) Rooms</option>
+                    {% endcomment %}
                 </select>
                 </div>
             </div>
