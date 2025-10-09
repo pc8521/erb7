@@ -1,7 +1,7 @@
 from django.db import models
 from datetime import datetime
 from doctors.models import Doctor
-from listings.choices import district_choices, night_choices, room_choices
+from listings.choices import district_choices, rooms_choices, type_choices
 from taggit.managers import TaggableManager
 
 # Create your models here.

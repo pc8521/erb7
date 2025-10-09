@@ -62,12 +62,12 @@
                 </select>
                 </div>
                 <div class="col-md-4 mb-3">
-                <label class="sr-only">Nights</label>
-                <select name="nights" class="form-control">
+                <label class="sr-only">Rooms</label>
+                <select name="rooms" class="form-control">
                     <option selected="true" value="">
-                    Night (All)
+                    Rooms (All)
                     </option>
-                    {% for key,value in night_choices.items %}
+                    {% for key,value in rooms_choices.items %}
                     <option value="{{key}}">{{value}}</option>
                     {% endfor %}
                     {% comment %}
@@ -89,7 +89,7 @@
                     <option selected="true" value="">
                     Room Types (All)
                     </option>
-                    {% for key,value in room_choices.items %}
+                    {% for key,value in type_choices.items %}
                     <option value="{{key}}">{{value}}</option>
                     {% endfor %}
                     {% comment %}

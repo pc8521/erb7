@@ -35,13 +35,13 @@
                 </select>
             </div>
             <div class="col-md-4 mb-3">
-                <label class="sr-only">Nights</label>
-                <select name="nights" class="form-control">
-                <option {% if not values.nights %} selected="true" {% endif %} value="">
+                <label class="sr-only">Rooms</label>
+                <select name="rooms" class="form-control">
+                <option {% if not values.rooms %} selected="true" {% endif %} value="">
                     Night (All)
                 </option>
-                {% for key,value in night_choices.items %}
-                    <option value="{{key}}" {% if key == values.nights %} selected="true" {% endif %}>{{value}}</option>
+                {% for key,value in rooms_choices.items %}
+                    <option value="{{key}}" {% if key == values.rooms %} selected="true" {% endif %}>{{value}}</option>
                 {% endfor %}
                 </select>
             </div>
@@ -50,7 +50,7 @@
                 <option  {% if not value.room_type %} selected="true" {% endif %} value="">
                     Room Type (All)
                 </option>
-                {% for key,value in room_choices.items %}
+                {% for key,value in type_choices.items %}
                     <option value="{{key}}" {% if key == values.room_type %} selected="true" {% endif %}>{{value}}</option>
                 {% endfor %}
                 </select>

@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Listing
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from listings.choices import district_choices, room_choices, night_choices
+from listings.choices import district_choices, rooms_choices, type_choices
 
 # Create your views here.
 
@@ -36,10 +36,10 @@ def search(request):
         district=request.GET['district']
         if district:
             queryset_list=queryset_list.filter(district__iexact=district)
-    if 'nights' in request.GET:
-        nights=request.GET['nights']
-        if nights:
-            queryset_list=queryset_list.filter(nights__lte=nights)
+    if 'rooms' in request.GET:
+        rooms=request.GET['rooms']
+        if rooms:
+            queryset_list=queryset_list.filter(rooms__lte=rooms)
     if 'room_type' in request.GET:
         room_type=request.GET['room_type']
         if room_type:
@@ -47,8 +47,8 @@ def search(request):
     context={
         'listings': queryset_list,
         'district_choices': district_choices,
-        'night_choices': night_choices,
-        'room_choices': room_choices,
+        'rooms_choices': rooms_choices,
+        'type_choices': type_choices,
         'values': request.GET
     }
     return render(request, 'listings/search.html' , context)

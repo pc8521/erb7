@@ -19,7 +19,7 @@ district_choices = {
     "Wan Chai" : "Wan Chai",
 }
 
-night_choices = {
+rooms_choices = {
     "1" : "1",
     "2" : "2",
     "3" : "3",
@@ -32,7 +32,7 @@ night_choices = {
     "10" : "10",
 }
 
-room_choices = {
+type_choices = {
 "Private Rooms" : "Private Rooms",
 "Semi-Private Rooms" : "Semi-Private Rooms",
 "Standard (Multi-bed) Rooms" : "Standard (Multi-bed) Rooms",
