@@ -1,7 +1,8 @@
 from django.db import models
 from datetime import datetime
 from doctors.models import Doctor
-from listings.choices import district_choices, night_choices, rooms_choices
+from listings.choices import district_choices, night_choices, room_choices
+from taggit.managers import TaggableManager
 
 # Create your models here.
 
@@ -12,13 +13,16 @@ class Listing(models.Model):
     district = models.CharField(max_length=50, choices=district_choices.items())
     # city = models.CharField(max_length=100)
     description = models.TextField(blank=True)
-    services = models.CharField(max_length=200)
+    # services = models.CharField(max_length=200)
+    services = TaggableManager()
     service = models.IntegerField()
     screens = models.CharField(max_length=200)
     screen = models.IntegerField()
     professionals = models.CharField(max_length=200)
     professional=models.IntegerField()
-    rooms = models.IntegerField(choices=night_choices.items())
+    rooms = models.IntegerField()
+    # nights = models.IntegerField()
+    # room_type = models.CharField(max_length=50)
     photo_main = models.ImageField(upload_to='photos/%Y/%m/%d/')
     photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     photo_2 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
