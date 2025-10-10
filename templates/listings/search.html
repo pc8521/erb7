@@ -37,7 +37,7 @@
                 <label class="sr-only">Rooms</label>
                 <select name="rooms" class="form-control">
                 <option {% if not values.rooms %} selected="true" {% endif %} value="">
-                    Night (All)
+                    Rooms (All)
                 </option>
                 {% for key,value in rooms_choices.items %}
                     <option value="{{key}}" {% if key == values.rooms %} selected="true" {% endif %}>{{value}}</option>
@@ -138,22 +138,21 @@
                     </div>
                 </div>
             {% endfor %}
-    {% else %}
+        {% else %}
         <div class="col-md-12">
             <p>No Clinic Available.</p>
         </div>
-    {% endif %}
+        {% endif %}
     </div>
     </div>
 
     <div class="row">
         <div class="col-md-12">
-        {% comment %} fix {% endcomment %}
         {%if listings.has_other_pages %}
                 <ul class="pagination">
                     {% if listings.has_previous %}
                     <li class="page-item">
-                    <a class="page-link" href="?page={{listings.previous_page_number}}">&laquo;</a>
+                    <a class="page-link" href="?page={{listings.previous_page_number}}&keywords={{values.keywords}}&district={{values.district}}&rooms={{values.rooms}}&room_type={{values.room_type}}">&laquo;</a>
                     </li>
                     {% else %}
                     <li class="page-item disabled">
@@ -167,21 +166,13 @@
                     </li>
                     {% else %}
                     <li class="page-item">
-                    <a class="page-link" href="?page={{i}}">{{i}}</a>
+                    <a class="page-link" href="?page={{i}}&keywords={{values.keywords}}&district={{values.district}}&rooms={{values.rooms}}&room_type={{values.room_type}}">{{i}}</a>
                     </li>
                     {% endif %}
                     {% endfor %}
-                    {% comment %}
-                    <li class="page-item">
-                    <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                    <a class="page-link" href="#">3</a>
-                    </li> 
-                    {% endcomment %}
                     {% if listings.has_next %}
                     <li class="page-item">
-                    <a class="page-link" href="?page={{listings.next_page_number}}">&raquo;</a>
+                    <a class="page-link" href="?page={{listings.next_page_number}}&keywords={{values.keywords}}&district={{values.district}}&rooms={{values.rooms}}&room_type={{values.room_type}}">&raquo;</a>
                     </li>
                     {% else %}
                     <li class="page-item disabled">
