@@ -1,18 +1,26 @@
 from django.contrib import admin
-from .models import Listing
+from .models import Listing, Subject
 from django.forms import NumberInput
 from django.db import models
 from django import forms
 from taggit.forms import TagWidget
+from django.contrib.admin.widgets import FilteredSelectMultiple
 
 # Register your models here.
 
 class ListingAdminForm(forms.ModelForm):
+    subjects = forms.ModelMultipleChoiceField(
+        queryset=Subject.objects.all(),
+        widget=FilteredSelectMultiple(verbose_name='Professionals', is_stacked=False,
+        attrs={'rows': '5'}), required=False, label='Select Professionals',
+    )
+
+
     class Meta:
         model = Listing
         # fields = '__all__'
         fields = ['doctor', 'title', 'address', 'district', 'description',
-                'services', 'service', 'screens', 'screen', 'professionals',
+                'services', 'service', 'room_type', 'screen', 'professionals',
                 'professional', 'rooms', 'photo_main', 'photo_1', 'photo_2',
                 'photo_3', 'photo_4', 'photo_5', 'photo_6', 'is_published']
         widgets = {
@@ -38,5 +46,14 @@ class ListingAdmin(admin.ModelAdmin):
     
     def get_queryset(self, request):
         return super().get_queryset(request).prefetch_related('services')
+    
+    def display_subjects(self, obj):
+        return ", ".join([subject.name for subject in obj.subjects.all()])
+    display_subjects.short_description = 'Professionals'
+
+class SubjectAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)
 
 admin.site.register(Listing, ListingAdmin)
+admin.site.register(Subject, SubjectAdmin)
