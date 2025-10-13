@@ -23,7 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = 'django-insecure-%2(n^dpugbabbk*3jg38)@kos@0**clzz267wwuwd!&+sbb%i!'
 from dotenv import load_dotenv
 import os
+from django.contrib.messages import constants as messages
 load_dotenv()
+
 SECRET_KEY = os.getenv('SITE_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -167,3 +169,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 TAGGIT_CASE_INSENSITIVE = True
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+    messages.SUCCESS: 'success',
+}
