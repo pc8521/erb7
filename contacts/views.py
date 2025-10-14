@@ -45,4 +45,7 @@ def edit_contact(request, contact_id):
     return render(request, 'contacts/edit_contact.html', {'form': form, 'contact': contact})
 
 def delete_contact(request, contact_id):
-    pass
+    contact = get_object_or_404(Contact, pk=contact_id)
+    contact.delete()
+    messages.success(request, 'Your inquiry has been deleted successfully.')
+    return redirect('accounts:dashboard')
