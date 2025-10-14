@@ -47,6 +47,7 @@ DJANGO_APPS = [
     'django.contrib.humanize',
     "debug_toolbar",
     "taggit",
+    'widget_tweaks',
 ]
 
 APPLICATION_APPS = [
