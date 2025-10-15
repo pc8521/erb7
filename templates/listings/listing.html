@@ -141,50 +141,74 @@
 
         </div>
         <!-- Fields -->
-        <div class="row mb-5 fields">
-            <div class="col-md-6">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item text-secondary">
-                <i class="fas fa-money-bill-alt"></i> Inpatient Fee
-                Estimate:
-                <span class="float-right">$20,000/Day</span>
-                </li>
-                <li class="list-group-item text-secondary">
-                <i class="fas fa-bed"></i> Bedrooms:
-                <span class="float-right">30</span>
-                </li>
-                <li class="list-group-item text-secondary">
-                <i class="fas fa-bath"></i> Bathrooms:
-                <span class="float-right">Private</span>
-                </li>
-                <li class="list-group-item text-secondary">
-                <i class="fas fa-dumbbell"></i> Treatment:
-                <span class="float-right"> Have </span>
-                </li>
-            </ul>
+            <div class="row py-2 text-secondary">
+                <div class="col-6">
+                    <i class="fas fa-th-large"></i> Services {{listing.service}}
+                </div>
+                <div class="col-6">
+                    <i class="fas fa-dumbbell"></i> Screens {{listing.screen}}
+                </div>
             </div>
-            <div class="col-md-6">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item text-secondary">
-                <i class="fas fa-th-large"></i> Restrooms:
-                <span class="float-right">Have</span>
-                </li>
-                <li class="list-group-item text-secondary">
-                <i class="fas fa-square"></i> Specialized Care:
-                <span class="float-right">No</span>
-                </li>
-                <li class="list-group-item text-secondary">
-                <i class="fas fa-calendar"></i> Preventative Services:
-                <span class="float-right">Have</span>
-                </li>
-                <li class="list-group-item text-secondary">
-                <i class="fas fa-bed"></i> Minor Surgical Procedures:
-                <span class="float-right">No</span>
-                </li>
-            </ul>
+            <div class="row py-2 text-secondary">
+                <div class="col-6">
+                    <i class="fas fa-bed"></i> Rooms {{listing.rooms}}
+                </div>
+                <div class="col-6">
+                    <i class="fas fa-bath"></i> Professionals {{listing.professional}}
+                </div>
             </div>
-        </div>
+            <hr />
+            <div class="row py-2 text-secondary">
+                <div class="col-12"><i class="fas fa-user"></i> {{listing.doctor.name}}</div>
+            </div>
+            <div class="row text-secondary pb-2">
+                <div class="col-12">
+                    <i class="fas fa-clock"></i> Reservation required
+                </div>
+            </div>
+            <hr />
 
+    <table>
+        <!-- Professionals -->
+        <tr>
+        <div class="row mb-5">
+            <td>
+            <h4 class="mr-3 text-secondary">Professionals: </h4>
+            </td>
+            {% if listing.professionals.all %}
+            <td>
+            <ul>
+                {% for professional in listing.professionals.all %}
+                    <li class="mr-3"><h4>{{ professional.name }}</h4></li>
+                {% endfor %}
+            </ul>
+            </td>
+            {% else %}
+                <p class="text-secondary">No professionals available</p>
+            {% endif %}
+        </div>
+        </tr>
+        <tr><td><hr /></td></tr>
+        <!-- Services -->
+        <tr>
+        <div class="row mb-5">
+            <td>
+            <h4 class="mr-3 text-secondary">Services: </h4>
+            </td>
+            {% if listing.services.all %}
+            <td>
+            <ul>
+                {% for service in listing.services.all %}
+                    <li class="mr-3"><h4>{{ service.name }}</h4></li>
+                {% endfor %}
+            </ul>
+            </td>
+            {% else %}
+                <p class="text-secondary">No services available</p>
+            {% endif %}
+        </div>
+        </tr>
+    </table>
         <!-- Description -->
         <div class="row mb-5">
             <div class="col-md-12">
