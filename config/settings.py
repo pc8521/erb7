@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-%2(n^dpugbabbk*3jg38)@kos@0**clzz267wwuwd!&+sbb%i!'
+# SECRET_KEY = ''
 from dotenv import load_dotenv
 import os
 from django.contrib.messages import constants as messages
